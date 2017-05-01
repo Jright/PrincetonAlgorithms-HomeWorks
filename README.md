@@ -1,4 +1,6 @@
-# PrincetonAlgorithms-Week2
+# PrincetonAlgorithms
+
+#Week-2
 
 The homework of https://www.coursera.org/learn/algorithms-part1 Princeton Algorithms tutorial Part1,week 2.
 
