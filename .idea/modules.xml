@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DequeAndRandomizedQueue.iml" filepath="$PROJECT_DIR$/DequeAndRandomizedQueue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PrincetonAlgorithms.iml" filepath="$PROJECT_DIR$/PrincetonAlgorithms.iml" />
     </modules>
   </component>
 </project>
