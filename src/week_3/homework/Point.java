@@ -1,3 +1,5 @@
+package week_3.homework;
+
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdDraw;
 
@@ -7,9 +9,14 @@ public class Point implements Comparable<Point> {
 
 
     private final int x;                              // x coordinate  
-    private final int y;                              // y coordinate  
+    private final int y;                              // y coordinate
 
-    public class SlopeOrder implements Comparator<Point>{
+
+    public Comparator<Point> slopeOrder(){
+        return new SlopeOrder();
+    }
+
+    private class SlopeOrder implements Comparator<Point>{
 
         public int compare(Point p1, Point p2) {
             double slopeP1 = slopeTo(p1);

@@ -1,7 +1,9 @@
+package week_3.homework;
+
 /*************************************************************************
- *  Compilation:  javac LineSegment.java
+ *  Compilation:  javac week_3.homework.LineSegment.java
  *  Execution:    none
- *  Dependencies: Point.java
+ *  Dependencies: week_3.homework.Point.java
  *
  *  An immutable data type for Line segments in the plane.
  *  For use on Coursera, Algorithms Part I programming assignment.
