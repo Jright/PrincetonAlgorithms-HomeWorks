@@ -1,32 +1,45 @@
-package week_1.Exerciese;
-
-
+package week_1.exerciese_1;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
+/*
+Successor with delete. Given a set of n integers S={0,1,...,n−1} and a sequence of requests of the following form:
+
+        Remove x from S
+        Find the successor of x: the smallest y in S such that y≥x.
+        design a data type so that all operations (except construction) take logarithmic time or better in the worst case.
+*/
+
 /**
- * Union-find with specific canonical element. Add a method find() to the union-find data type so that find(i) returns the largest element
- * in the connected component containing i. The operations, union(), connected(), and find() should all take logarithmic time or better.
+ * Hint: use the modification of the union−find data discussed in the previous question.
  *
- * For example, if one of the connected components is {1,2,6,9}, then the find() method should return 9 for each of the four elements
- * in the connected components.
- *
- * Note: This Union-Find is not weighted. The official course note gives a hint,"maintain an extra array to the weighted quick-union data structure that stores for each
- * root i the large element in the connected component containing i."
+ * //TODO 删除操作弹出的数字还不对。
  */
-public class UnionFindWithFindLargestMember {
+public class SuccessorWithDelete {
 
     private final int[] graph;
     private int size;
 
-    public UnionFindWithFindLargestMember(int size){
+    public SuccessorWithDelete(int size){
         this.size = size;
         graph = new int[size];
 
         for (int index = 0; index < size; index++) {
             graph[index] = index; // each node is a separate component.
+            if(index != size - 1){
+                union(index,index + 1);
+            }
         }
+    }
+
+    //FIXME 删除之后的返回不对
+    public int deleteElement(int index){
+        int initialIndex = index;
+        for(; index < size - 1; index ++){
+            graph[index] = graph[index + 1];
+        }
+        return graph[initialIndex];
     }
 
     public void checkIndexValid(int index){
@@ -79,20 +92,21 @@ public class UnionFindWithFindLargestMember {
     }
 
     public static void main(String[] args){
-        UnionFindWithFindLargestMember unionFind = new UnionFindWithFindLargestMember(10);
+//        UnionFindWithFindLargestMember unionFind = new UnionFindWithFindLargestMember(10);
+//
+//        unionFind.union(0,1);
+//
+//        unionFind.union(1,2);
+//
+//        unionFind.union(4,5);
 
-        unionFind.union(0,1);
+        SuccessorWithDelete successorWithDelete = new SuccessorWithDelete(10);
 
-        unionFind.union(1,2);
+        System.out.println("delete 0: " + successorWithDelete.deleteElement(4));
 
-        unionFind.union(4,5);
+//        System.out.println("delete 4: " + successorWithDelete.deleteElement(4));
 
-
-        System.out.println("find 0: " + unionFind.find(0));
-
-        System.out.println("find 4: " + unionFind.find(4));
-
-        System.out.println("find 8: " + unionFind.find(8));
+//        System.out.println("delete 8: " + successorWithDelete.deleteElement(8));
 
     }
 

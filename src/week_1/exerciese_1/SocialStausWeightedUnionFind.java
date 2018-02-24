@@ -1,4 +1,4 @@
-package week_1.Exerciese;
+package week_1.exerciese_1;
 
 
 
