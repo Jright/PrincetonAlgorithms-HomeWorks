@@ -7,9 +7,13 @@ package week_1.exercise_2;
  * Write a program that, given a bitonic array of n distinct integer values, determines whether a given integer is in the array.
  * Standard version: Use ∼3lgn compares in the worst case.
  * Signing bonus: Use ∼2lgn compares in the worst case (and prove that no algorithm can guarantee to perform fewer than ∼2lgn compares in the worst case).
+ *
+ *
+ * Hints: Standard version. First, find the maximum integer using ∼1lgn compares—this divides the array into the increasing and decreasing pieces.
+ * Signing bonus. Do it without finding the maximum integer.
  */
 
-
+//TODO How can you do it without finding the maximum integer?
 public class FindElementInBitonicArray {
 
     public static void main(String[] args){
