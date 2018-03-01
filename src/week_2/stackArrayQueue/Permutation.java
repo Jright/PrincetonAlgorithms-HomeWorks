@@ -1,4 +1,4 @@
-package week_2; /**
+package week_2.stackArrayQueue; /**
  * Created by jright on 2017/5/1.
  */
 
