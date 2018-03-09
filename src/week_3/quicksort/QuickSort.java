@@ -1,6 +1,31 @@
 package week_3.quicksort;
 
+import edu.princeton.cs.algs4.StdRandom;
+import week_3.PrintUtil;
+
 public class QuickSort {
+
+    public static void main(String[] args){
+        Integer[] array = new Integer[]{1,6,22,43,-19,2,6,4};
+        sort(array);
+        PrintUtil.printArray(0,array);
+    }
+
+    public static void sort(Comparable[] a){
+        StdRandom.shuffle(a);
+        sort(a,0, a.length - 1);
+    }
+
+    private static void sort(Comparable[] a,int low, int high){
+        if(high <= low){ // Jump out condition of this divide-conquer method
+            return;
+        }
+        int j = partition(a,low,high);
+        sort(a,low,j - 1);
+        sort(a,j + 1, high);
+    }
+
+
 
     private static int partition(Comparable[] a, int low, int high){
         //1. a[low] = v
