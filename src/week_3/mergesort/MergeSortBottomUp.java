@@ -1,12 +1,14 @@
 package week_3.mergesort;
 
+import week_3.PrintUtil;
+
 public class MergeSortBottomUp extends MergeSort{
 
     public static void main(String[] args){
-        Comparable[] array = {1,2,8,4,6,3,7,9,5,0};
+        Comparable[] array = {1,2,8,4,6,3,7,9,5,0,22,-1,25,-17};
 
         sortFromBottom(array);
-        printArray(0,array);
+        PrintUtil.printArray(0,array);
     }
 
     public static void sortFromBottom(Comparable[] a){

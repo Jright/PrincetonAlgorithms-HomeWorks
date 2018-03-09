@@ -1,5 +1,7 @@
 package week_3.mergesort;
 
+import week_3.PrintUtil;
+
 /**
  * Created by jright on 2017/6/28.
  */
@@ -36,14 +38,15 @@ public class MergeSort {
             result[k] = compare > 0 ? a[j++] : a[i++];
             k++;
         }
-        printArray(1,result);
+
+        PrintUtil.printArray(1,result);
 
         while(i <= mid){
             result[k] = a[i++];
             k++;
         }
 
-        printArray(2,result);
+        PrintUtil.printArray(2,result);
 
         while(j <= high){
             result[k] = a[j++];
@@ -51,7 +54,7 @@ public class MergeSort {
             k++;
         }
 
-        printArray(3,result);
+        PrintUtil.printArray(3,result);
         for(int q = 0; q < result.length; q++){
             a[q] = result[q];
         }
@@ -85,14 +88,6 @@ public class MergeSort {
             }
         }
         return true;
-    }
-
-    protected static void printArray(int count,Comparable[] array){
-        System.out.print(count + ": ");
-        for(Comparable c1 : array){
-            System.out.print(c1 + " ");
-        }
-        System.out.println();
     }
     //递归实现归并排序
 //    static void merge_sort_recursive(int[] arr, int[] result, int start, int end) {
