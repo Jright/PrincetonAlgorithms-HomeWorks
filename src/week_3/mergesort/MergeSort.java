@@ -1,11 +1,11 @@
-package week_3;
+package week_3.mergesort;
 
 /**
  * Created by jright on 2017/6/28.
  */
 public class MergeSort {
 
-    private static int mergeCount = 0;
+    protected static int mergeCount = 0;
     public static void main(String[] args) {
         Comparable[] array = {4,2,1,3,5,8,6,9,7,0};
         Comparable[] aux = array.clone();
@@ -87,7 +87,7 @@ public class MergeSort {
         return true;
     }
 
-    private static void printArray(int count,Comparable[] array){
+    protected static void printArray(int count,Comparable[] array){
         System.out.print(count + ": ");
         for(Comparable c1 : array){
             System.out.print(c1 + " ");
