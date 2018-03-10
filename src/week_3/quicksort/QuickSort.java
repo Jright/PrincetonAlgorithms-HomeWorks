@@ -27,7 +27,7 @@ public class QuickSort {
 
 
 
-    private static int partition(Comparable[] a, int low, int high){
+    protected static int partition(Comparable[] a, int low, int high){
         //1. a[low] = v
         int i = low, j = high + 1;
         while(true){
