@@ -6,7 +6,7 @@ import week_3.PrintUtil;
 public class QuickSort {
 
     public static void main(String[] args){
-        Integer[] array = new Integer[]{1,6,22,43,-19,2,6,4};
+        Integer[] array = new Integer[]{1,6,22,43,-19,2,6,4,3,6,1,43,7,22,-19};
         sort(array);
         PrintUtil.printArray(0,array);
     }
@@ -59,7 +59,7 @@ public class QuickSort {
         return a.compareTo(b) < 0 ? true : false;
     }
 
-    private static void exchange(Comparable[] array, int i, int j){
+    protected static void exchange(Comparable[] array, int i, int j){
 
         assert i >= 0 && i < array.length;
         assert j >= 0 && j < array.length;
