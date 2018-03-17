@@ -1,8 +1,6 @@
 package week_3.quicksort;
 
-import edu.princeton.cs.algs4.Quick3way;
 import edu.princeton.cs.algs4.StdRandom;
-import week_3.PrintUtil;
 
 /**
  * In case of many same-value items in an array with numerous length, this 3 way partitioning quick sort was introduced back in the 1990s
@@ -13,7 +11,7 @@ public class ThreewayQuickSort extends QuickSort{
         Integer[] array = new Integer[]{1,6,22,43,-19,2,6,4,3,6,1,43,7,22,-19};
         threeWayQuickSort(array, 0 , array.length - 1);
 //        Quick3way.sort(array);
-//        PrintUtil.printArray(0, array);
+//        AlgorithmUtil.printArray(0, array);
     }
 
     private static void threeWayQuickSort(Integer[] a){

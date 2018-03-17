@@ -1,6 +1,6 @@
 package week_3.mergesort;
 
-import week_3.PrintUtil;
+import week_3.AlgorithmUtil;
 
 public class MergeSortBottomUp extends MergeSort{
 
@@ -8,7 +8,7 @@ public class MergeSortBottomUp extends MergeSort{
         Comparable[] array = {1,2,8,4,6,3,7,9,5,0,22,-1,25,-17};
 
         sortFromBottom(array);
-        PrintUtil.printArray(0,array);
+        AlgorithmUtil.printArray(0,array);
     }
 
     public static void sortFromBottom(Comparable[] a){

@@ -1,6 +1,6 @@
 package week_3.mergesort;
 
-import week_3.PrintUtil;
+import week_3.AlgorithmUtil;
 
 /**
  * Created by jright on 2017/6/28.
@@ -39,14 +39,14 @@ public class MergeSort {
             k++;
         }
 
-        PrintUtil.printArray(1,result);
+        AlgorithmUtil.printArray(1,result);
 
         while(i <= mid){
             result[k] = a[i++];
             k++;
         }
 
-        PrintUtil.printArray(2,result);
+        AlgorithmUtil.printArray(2,result);
 
         while(j <= high){
             result[k] = a[j++];
@@ -54,7 +54,7 @@ public class MergeSort {
             k++;
         }
 
-        PrintUtil.printArray(3,result);
+        AlgorithmUtil.printArray(3,result);
         for(int q = 0; q < result.length; q++){
             a[q] = result[q];
         }

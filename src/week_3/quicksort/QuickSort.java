@@ -1,14 +1,14 @@
 package week_3.quicksort;
 
 import edu.princeton.cs.algs4.StdRandom;
-import week_3.PrintUtil;
+import week_3.AlgorithmUtil;
 
 public class QuickSort {
 
     public static void main(String[] args){
         Integer[] array = new Integer[]{1,6,22,43,-19,2,6,4,3,6,1,43,7,22,-19};
         sort(array);
-        PrintUtil.printArray(0,array);
+        AlgorithmUtil.printArray(0,array);
     }
 
     public static void sort(Comparable[] a){
