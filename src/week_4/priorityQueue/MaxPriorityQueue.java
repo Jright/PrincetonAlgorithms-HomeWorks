@@ -5,7 +5,7 @@ import week_3.AlgorithmUtil;
 public class MaxPriorityQueue extends UnsortedMaxPQ{
 
     public MaxPriorityQueue(int capacity) {
-        super(capacity);
+        super(capacity + 1);
     }
 
     /**
