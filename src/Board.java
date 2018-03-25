@@ -5,6 +5,7 @@ public class Board {
 
     private int[][] mBlocks;
     private int mBlankRow, mBlankColumn;
+    private int manhattanCount;
 
     // construct a board from an n-by-n array of blocks
     // (where blocks[i][j] = block in row i, column j)
@@ -150,7 +151,7 @@ public class Board {
 
     }
 
-    private Board swap(Board board, int rowSrc, int columnSrc, int rowDest, int columnDest){
+    public Board swap(Board board, int rowSrc, int columnSrc, int rowDest, int columnDest){
         int[][] blocks = board.mBlocks;
         int temp = blocks[rowSrc][columnSrc];
         blocks[rowSrc][columnSrc] = blocks[rowDest][columnDest];
@@ -169,6 +170,21 @@ public class Board {
             builder.append('\n');
         }
         return builder.toString();
+    }
+
+    /**
+     * @return All of elements inside the two-dimension array, exclude the blank(0)
+     */
+    public Queue<Integer> getAllElements(){
+        Queue<Integer> elementsQueue = new Queue<>();
+        for (int i = 0; i < mBlocks.length; i++){
+            for(int j = 0; j < mBlocks.length; j++){
+                if(mBlocks[i][j] != 0){
+                    elementsQueue.enqueue(mBlocks[i][j]);
+                }
+            }
+        }
+        return elementsQueue;
     }
 
     // unit tests (not graded)
