@@ -3,20 +3,23 @@ import edu.princeton.cs.algs4.StdRandom;
 
 public class Board {
 
-    private int[][] mBlocks;
+    private int[] mBlocks;
     private int mBlankRow, mBlankColumn;
-    private int manhattanCount;
-
     // construct a board from an n-by-n array of blocks
     // (where blocks[i][j] = block in row i, column j)
+
     public Board(int[][] blocks) {
-        mBlocks = new int[blocks.length][blocks.length];
+        if(blocks == null){
+            throw new IllegalArgumentException("Cannot input a null object");
+        }
+
+        mBlocks = new int[blocks.length * blocks.length];
         for (int i = 0; i < blocks.length; i++){
-            for(int j = 0; j < blocks.length; j++){
-                mBlocks[i][j] = blocks[i][j];
-                if(mBlocks[i][j] == 0){
-                    mBlankRow = i;
-                    mBlankColumn = j;
+            for (int j = 0; j < blocks.length; j++){
+                this.mBlocks[i * blocks.length + j] = blocks[i][j];
+                if(blocks[i][j] == 0){
+                    this.mBlankRow = i;
+                    this.mBlankColumn = j;
                 }
             }
         }
@@ -30,49 +33,29 @@ public class Board {
 
     // number of blocks out of place
     public int hamming() {
-        int count = 0;
-        for(int i = 0; i <= mBlocks.length; i++){
-            for(int j = 0; j < mBlocks[i].length; j++){
-
-                if(mBlocks[i][j] == 0){
-                    continue;
-                }
-
-                if(mBlocks[i][j] != i * dimension() + j){
-                    count++;
-                }
+        int cnt = 0;
+        for (int i = 0; i < mBlocks.length; i++){
+            if (mBlocks[i] != 0 && mBlocks[i] != i+1){
+                cnt++;
             }
         }
-        return count;
+        return cnt;
     }
 
     // sum of Manhattan distances between blocks and goal
     public int manhattan() {
-        int count = 0;
-        for(int i = 1; i <= mBlocks.length; i++){
-            for(int j = 1; j <= mBlocks[i].length; j++){
+        int sum;
+        int row, col;
 
-                //The right number for this specific location
-                int origin = (i - 1) * dimension() + j;
-                //The num difference of the number currently occupying this position, compare to the original(right) number
-                int difference = mBlocks[i][j] - origin;
-
-                if(difference == 0 || mBlocks[i][j] == 0){
-                    continue;
-                }
-                //By lifting/dropping one grid vertically, the number we choose will add/minus a value of the dimension()
-                //horizontally move -> +1 or -1
-                //So we can calculate the total move for a wrong positioned number to its difference with the original number
-                //with the result of its current number divide and take the remainder with the dimension.
-
-                int remainder = difference % dimension();
-                int divideResult = difference / dimension();
-
-                count = count + remainder + divideResult;
-
+        sum = 0;
+        for (int i = 0; i < mBlocks.length; i++) {
+            if (mBlocks[i] != 0 && mBlocks[i] != i+1) {
+                col = Math.abs(i % mBlocks.length - (mBlocks[i]-1) % mBlocks.length);
+                row = Math.abs(i / mBlocks.length - (mBlocks[i]-1) / mBlocks.length);
+                sum += (row + col);
             }
         }
-        return count;
+        return sum;
     }
 
     // is this board the goal board?
@@ -117,7 +100,7 @@ public class Board {
             int n = mBlocks.length;
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
-                    if (obj.mBlocks[i][j] != this.mBlocks[i][j]) {
+                    if (obj.mBlocks[i * mBlocks.length + j] != this.mBlocks[i * mBlocks.length + j]){
                         return false;
                     }
                 }
@@ -151,12 +134,19 @@ public class Board {
 
     }
 
-    public Board swap(Board board, int rowSrc, int columnSrc, int rowDest, int columnDest){
-        int[][] blocks = board.mBlocks;
-        int temp = blocks[rowSrc][columnSrc];
-        blocks[rowSrc][columnSrc] = blocks[rowDest][columnDest];
-        blocks[rowDest][columnDest] = temp;
-        return new Board(blocks);
+    private Board swap(Board board, int rowSrc, int columnSrc, int rowDest, int columnDest){
+        int[] blocks = board.mBlocks;
+        int temp = blocks[rowSrc * blocks.length + columnSrc];
+        blocks[rowSrc * blocks.length + columnSrc] = blocks[rowDest * blocks.length + columnDest];
+        blocks[rowDest * blocks.length + columnDest] = temp;
+
+        int[][] newBlock = new int[blocks.length][blocks.length];
+        for(int i = 0; i < newBlock.length; i++){
+            for (int j = 0; j < newBlock[i].length; j++){
+                newBlock[i][j] = blocks[i * blocks.length + j];
+            }
+        }
+        return new Board(newBlock);
     }
 
     // string representation of this board (in the output format specified below)
@@ -165,26 +155,11 @@ public class Board {
         builder.append(dimension()).append('\n');
         for (int i = 0; i < dimension(); i++) {
             for (int j = 0; j < dimension(); j++) {
-                builder.append(String.format("%2d ", mBlocks[i][j]));
+                builder.append(String.format("%2d ", mBlocks[i * mBlocks.length + j]));
             }
             builder.append('\n');
         }
         return builder.toString();
-    }
-
-    /**
-     * @return All of elements inside the two-dimension array, exclude the blank(0)
-     */
-    public Queue<Integer> getAllElements(){
-        Queue<Integer> elementsQueue = new Queue<>();
-        for (int i = 0; i < mBlocks.length; i++){
-            for(int j = 0; j < mBlocks.length; j++){
-                if(mBlocks[i][j] != 0){
-                    elementsQueue.enqueue(mBlocks[i][j]);
-                }
-            }
-        }
-        return elementsQueue;
     }
 
     // unit tests (not graded)
