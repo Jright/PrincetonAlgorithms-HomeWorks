@@ -1,6 +1,7 @@
 import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.StdRandom;
 
+//FIXME 没通过测试，24/100 得分
 public class Board {
 
     private int[] mBlocks;
