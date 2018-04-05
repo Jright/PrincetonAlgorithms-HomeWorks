@@ -1,4 +1,4 @@
-package week_4.exercise;
+package week_4.exercise_1;
 
 /**
  * TODO
