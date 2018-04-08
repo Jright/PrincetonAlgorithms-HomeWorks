@@ -19,7 +19,7 @@ public class Exercise_1 {
         //its position and find the second word's appearance position, and it has to be bigger than the first position. And so on.
         //To locate each of the m words more efficiently, we store all words in n using red-black trees.
 
-        //https://github.com/phareskrad/algs4/blob/master/jobinterviewquestions/BalancedSearchTrees.java
+        //Based on https://github.com/phareskrad/algs4/blob/master/jobinterviewquestions/BalancedSearchTrees.java, Added some of my own thoughts and comment
 
         In in = new In("");
         String[] words = in.readAllStrings();
