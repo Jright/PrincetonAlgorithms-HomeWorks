@@ -5,14 +5,19 @@ import java.util.*;
 //4-SUM. Given an array a[ \; ] of n integers, the 4-SUM problem is to determine if there exist distinct indices i, j, k,
 //        and l such that a[i] + a[j] = a[k] + a[l]. Design an algorithm for the 4-SUM problem that takes time proportional to n^2
 //        (under suitable technical assumptions).
+
+//TODO Wrong Answer
 public class FourSum {
 
     public static void main(String[] args){
         ArrayList<Integer> list = new ArrayList<>();
-
-        for(int i = 1; i < 10; i++){
-            list.add(i);
-        }
+//        1,0,-1,0,-2,2
+        list.add(1);
+        list.add(0);
+        list.add(-1);
+        list.add(0);
+        list.add(-2);
+        list.add(2);
 
         check4Sum(list);
     }

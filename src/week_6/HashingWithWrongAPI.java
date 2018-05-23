@@ -22,6 +22,7 @@ public class HashingWithWrongAPI {
     //Copied from https://blog.csdn.net/jason_cuijiahui/article/details/78136358
 //    Override hashCode() but not equals()
 //    a) 对于void put(Key key, Value val)来说，对于引用不同但本质上是equal的key1, key2，会哈希到同一个bucket中，但两个都会保存下来，因为认为他们不是equal的。
+    //TODO why??
 //    b) 对于Value get(Key key)来说，对于引用不同但本质上是equal的key3，虽然会哈希到同一个bucket，但返回的是null。
 //
 //    Override equals() but not hashCode()
